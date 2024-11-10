@@ -6,10 +6,14 @@
 
 ### Learning the Modules
 Basic Numpy Tutorials: [Numpy on W3 Schools](https://www.w3schools.com/python/numpy/default.asp)
+
 Basic MatplotLib Tutorials: [MatplotLib on W3 Schools](https://www.w3schools.com/python/matplotlib_intro.asp)
+
 Getting Fancy with MatplotLib: [MatplotLib documentation](https://matplotlib.org/stable/)
+
 Pandas is only needed for the import line, so it can be skipped. 
 
 ### Shortcuts 
-[Shorthand If/Else] https://www.w3schools.com/python/gloss_python_if_else_shorthand.asp
+[Shorthand If/Else](https://www.w3schools.com/python/gloss_python_if_else_shorthand.asp)
+
 [Shorthand For Loops](https://blog.teamtreehouse.com/python-single-line-loops)
