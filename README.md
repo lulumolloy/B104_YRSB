@@ -13,6 +13,11 @@ Getting Fancy with MatplotLib: [MatplotLib documentation](https://matplotlib.org
 
 Pandas is only needed for the import line, so it can be skipped. 
 
+Bar/Line Chart Examples: [Bar/Line Chart Examples](https://www.geeksforgeeks.org/python-plotting-charts-in-excel-sheet-using-openpyxl-module-set-1/)
+
+Pie/Circle Chart Examples: [Pie/Circle Chart Examples](https://stackoverflow.com/questions/61465204/python-data-from-excel-into-pie-chart)
+
+Heatmap Chart Examples: [Heatmap Chart Examples](https://www.geeksforgeeks.org/how-to-draw-2d-heatmap-using-matplotlib-in-python/)
 ### Shortcuts 
 [Shorthand If/Else](https://www.w3schools.com/python/gloss_python_if_else_shorthand.asp)
 
