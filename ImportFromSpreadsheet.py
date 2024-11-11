@@ -51,3 +51,17 @@ def makeSexBarGraph(dataSet):
     #add additional data for people who didn't respond 
     na= (dataSet[:,1]== "nan").sum() # nan=no response 
     print(f"{na} people didn't respond. That's {round(na/len(dataSet),2)}% of responses")
+
+def ActivePeople():
+    plot.hist(activity, bins=[1,2,3,4,5,6,7], color= '#ff56a0', edgecolor="#b92e6b") 
+    plot.title("Numbers of Days Active")
+    plot.xlabel("Days")
+    plot.ylabel("Participants")
+    plot.show()
+
+def BreakfastEaters():
+    plot.hist(breakfast, bins=[1,2,3,4,5,6,7], color= '#ff56a0', edgecolor="#b92e6b") 
+    plot.title("Numbers of Days The Participants Ate Breakfast")
+    plot.xlabel("Days")
+    plot.ylabel("Participants")
+    plot.show()
