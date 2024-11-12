@@ -1,0 +1,46 @@
+# Developers: Doherty, Hailey & Holdt, Lucy
+# Class: B104
+# Group: Non-Major
+# Project: YRSB Data Analysis- Final Project
+import Functions_Finale as ff
+
+print('Hello')
+print('-----------------------------------------------------------------------')
+print('We were curious to see the relation to people who ate breakfast in the morning and people who are active')
+print('So, we created some graphs!!')
+answer = input('Would you like to see our graphs?? Y/N: ').lower()
+while answer == 'y':
+    print('\nHere is your options!! There are 4!!')
+    print('To choose a graph, please enter its assigned number :) ')
+    print('\n1. The Heatgraph')
+    print('2. BMI Bar Graph')
+    print('3. Activity Bar Graph')
+    print('4. Breakfast Bar Graph')
+
+    which_graph = input(('\nPlease enter the assigned number:  '))
+    # if which_graph == '1':
+    #     dataFrame = 0
+    #     height = 0
+    #     weight = 0
+    #     print('\nHere is a heat graph ')
+    #     ff.getHeatmap(dataFrame, height, weight)
+    #     answer = input('Would you like to see more graphs?    ')
+    # elif which_graph == '2':
+    #     print('\nHere is a bar graph showing the BMI of the participants')
+    #     ff.getBMIHist(height, weight)
+    #     answer = input('Would you like to see more graphs?    ')
+    if which_graph == '3':
+        print('\nHere is a bar graph showing how many people were active in the last 7 days')
+        ff.ActivePeople()
+        answer = input('Would you like to see more graphs?  ')
+        
+    elif which_graph == '4':
+        print('\nHere is a bar graph showing how many people ate breakfast in the last 7 days')
+        ff.BreakfastEaters()
+        answer = input('Would you like to see more graphs?  ')
+        
+    else:
+        break
+else:
+    print('Thank you for your time :) ')
+
