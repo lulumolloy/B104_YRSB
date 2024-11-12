@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plot
 import matplotlib as mpl
+import seaborn as sns
 
 #make charts pretty
 mpl.rcParams['axes.facecolor'] = "#fac8de" #sets chart background
