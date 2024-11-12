@@ -12,15 +12,16 @@ mpl.rcParams['axes.facecolor'] = "#fac8de" #sets chart background
 mpl.rcParams['figure.facecolor'] = "#fce3ee" #sets background
 
 # import spreadsheet & convert to numpy 
-dataSet=np.array(pd.read_excel("B104_YRBS.xlsx", sheet_name="Sheet1"))
+dataFrame=pd.read_excel("B104_YRBS.xlsx", sheet_name="Sheet1")
+dataArray=np.array(dataFrame)
 
 # variables for ease of access
-age=dataSet[:,0]
-sex=dataSet[:,1]
-height=dataSet[:,2]
-weight=dataSet[:,3]
-breakfast=dataSet[:,4]
-activity=dataSet[:,5]
+age=dataArray[:,0]
+sex=dataArray[:,1]
+height=dataArray[:,2]
+weight=dataArray[:,3]
+breakfast=dataArray[:,4]
+activity=dataArray[:,5]
 
 def getBMIHist(height,weight):
     bmi=[]
@@ -34,7 +35,7 @@ def getBMIHist(height,weight):
     plot.grid(axis="y") #adds grid only for y axis
     plot.title("BMI Frequency")
     plot.xlabel("BMI")
-    plot.ylabel("Frequency")
+    plot.ylabel("Participants")
     plot.show()
 
 def makeSexBarGraph(dataSet):
@@ -64,4 +65,22 @@ def BreakfastEaters():
     plot.title("Numbers of Days The Participants Ate Breakfast")
     plot.xlabel("Days")
     plot.ylabel("Participants")
+    plot.show()
+
+def getHeatmap(dataFrame, height, weight):
+    bmi=[]
+    #calculate bmi, get list
+    for x in range(len(height)): #bmi, this time w/empty values!
+        if weight[x]!="nan" or height[x]!="nan": 
+            bmi.append(weight[x]/ (height[x]**2))
+        else:
+            bmi.append("none")
+    #rename columns for chart to be clear
+    dataFrame.rename(columns={"q1":"Age","q2":"Sex","q6":"Height","q7":"Weight","q75":"Breakfast","q76":"Activity"}, inplace=True)
+    dataFrame.insert(4, "BMI", bmi) #insert bmi into dataframe
+
+    #get correlation and chart
+    correlation_matrix = dataFrame.corr()
+    plot.figure(figsize = (8,8))
+    sns.heatmap(correlation_matrix, cmap = 'RdPu', annot=True)
     plot.show()
