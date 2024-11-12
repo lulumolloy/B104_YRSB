@@ -9,10 +9,10 @@ import matplotlib as mpl
 import seaborn as sns
 
 #make charts pretty
-mpl.rcParams['axes.facecolor'] = "#fac8de" #sets chart background
-mpl.rcParams['figure.facecolor'] = "#fce3ee" #sets background
+mpl.rcParams['axes.facecolor'] = "#fcf1ee" #sets chart background
+mpl.rcParams['figure.facecolor'] = "#fcf1ee" #sets background
 
-# import spreadsheet & convert to numpy 
+# import spreadsheet & convert to numpy (done in 2 steps bc array & frame are used)
 dataFrame=pd.read_excel("B104_YRBS.xlsx", sheet_name="Sheet1")
 dataArray=np.array(dataFrame)
 
@@ -38,22 +38,7 @@ def getBMIHist(height,weight):
     plot.xlabel("BMI")
     plot.ylabel("Participants")
     plot.show()
-
-def makeSexBarGraph(dataSet):
-    """get count of how many participants are male or female"""
-    #(sex == 1) is shorthand if statement, if 1, true, else false.
-    female = (dataSet[:,1] == 1).sum() #sum counts how many entries are true
-    male = (dataSet[:,1] == 2).sum() 
-
-    x= np.array(["females","males"])
-    y=[female,male]
-    plot.bar(x,y) #creates graph
-    plot.show() #shows us the graph
-   
-    #add additional data for people who didn't respond 
-    na= (dataSet[:,1]== "nan").sum() # nan=no response 
-    print(f"{na} people didn't respond. That's {round(na/len(dataSet),2)}% of responses")
-
+    
 def ActivePeople():
     # make columns and rows
     plot.hist(activity, bins=[1,2,3,4,5,6,7], color= '#ff56a0', edgecolor="#b92e6b") 
@@ -94,4 +79,33 @@ def getHeatmap(dataFrame, height, weight):
     correlation_matrix = dataFrame.corr()
     plot.figure(figsize = (8,8))
     sns.heatmap(correlation_matrix, cmap = 'RdPu', annot=True)
+    plot.show()
+    
+def getCorrelationPlot():
+    #shift dataFrame set to match responses 
+    dataFrame["q75"]-=1
+    dataFrame["q76"]-=1
+    
+    #make histplot 
+    sns.histplot(dataFrame,x="q75",y="q76",bins=8,cmap="RdPu",thresh=None, stat="percent", discrete=True, cbar=True)
+
+    #get responses per correlation pair
+    percentage, var1, var2= np.histogram2d(breakfast,activity,bins=8) #var1 and var2 are unused but require declaration 
+
+    #convert responses into percentage
+    percentage/=14083.0 
+    percentage*=100
+
+    #add text for each correlation pair stating percentage 
+    for x in range(8):
+        for y in range(8):
+            if percentage[x][y]<9: #makes 9% white
+                plot.text(x-.38,y-.1,(f"{round(percentage[x][y],2)}%"),fontsize=9,color="black")
+            else:
+                plot.text(x-.38,y-.1,(f"{round(percentage[x][y],2)}%"),fontsize=9,color="white")
+
+    #add labels 
+    plot.xlabel("Number of Days Breakfast is Eaten (per week)")
+    plot.ylabel("Number of Days of Activity (per week)")
+    plot.title("Correlation Between Breakfast and Activity")
     plot.show()
