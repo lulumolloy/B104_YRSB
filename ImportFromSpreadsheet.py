@@ -54,17 +54,27 @@ def makeSexBarGraph(dataSet):
     print(f"{na} people didn't respond. That's {round(na/len(dataSet),2)}% of responses")
 
 def ActivePeople():
+    # make columns and rows
     plot.hist(activity, bins=[1,2,3,4,5,6,7], color= '#ff56a0', edgecolor="#b92e6b") 
+    
+    # name columns and rows
     plot.title("Numbers of Days Active")
     plot.xlabel("Days")
     plot.ylabel("Participants")
+
+    # print
     plot.show()
 
 def BreakfastEaters():
+    # make columns and rows
     plot.hist(breakfast, bins=[1,2,3,4,5,6,7], color= '#ff56a0', edgecolor="#b92e6b") 
+
+    # name columns and rows
     plot.title("Numbers of Days The Participants Ate Breakfast")
     plot.xlabel("Days")
     plot.ylabel("Participants")
+
+    # print
     plot.show()
 
 def getHeatmap(dataFrame, height, weight):
