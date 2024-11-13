@@ -38,7 +38,8 @@ def getBMI():
     dataFrame.insert(4, "BMI", bmi)
 
 def getBMIHist():
-    getBMI()
+    if ("BMI" in dataFrame.columns)==False:
+       getBMI()
     bmi=dataFrame["BMI"].dropna()
     # make graph
     sns.histplot(x=bmi, bins=[10,15,20,25,30,35,40,45,50], color= '#f2a2a2', edgecolor="#bf7373", stat="percent") #bins is number of columns, edgecolor is outline of columns 
@@ -88,7 +89,8 @@ def getBreakfastEaters():
     plot.show()
 
 def getHeatmap():
-    getBMI()
+    if ("BMI" in dataFrame.columns)==False:
+       getBMI()
     
     #get correlation and chart
     correlation_matrix = dataFrame.corr()
