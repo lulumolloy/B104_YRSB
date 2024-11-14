@@ -5,6 +5,9 @@
 [Documentation](https://emailsc-my.sharepoint.com/:w:/r/personal/lholdt_email_uscb_edu/Documents/B104_Team_Non-Major_ProjectDoc.docx?d=w8c064fa385244b55af0a1fd11298f377&csf=1&web=1&e=vE7hDJ)
 
 [To-Do List](https://emailsc-my.sharepoint.com/:w:/r/personal/lholdt_email_uscb_edu/Documents/to%20do%20list.docx?d=w01a9bfaac6de45f3aaa142b93cd72f28&csf=1&web=1&e=IoFTYR)
+
+[Poster Text and Design Notes](https://docs.google.com/document/d/17Vrsoz6SiJCu3tWJ5mxKJJGpZW8JcQknBmdH0DaRbuc/edit?usp=sharing): Mostly for Lucy (MS Word drives me crazy and most the text in there will be mine, you can just copy paste). 
+
 ### Learning the Modules
 Basic Numpy Tutorials: [Numpy on W3 Schools](https://www.w3schools.com/python/numpy/default.asp)
 
