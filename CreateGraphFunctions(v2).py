@@ -126,3 +126,64 @@ def getCorrelationPlot():
     
     # print
     plot.show()
+
+print('\nHello')
+print('-----------------------------------------------------------------------')
+print('We were curious to see the relation to people who ate breakfast in the morning and people who are active')
+print('So, we created some graphs!!')
+
+answer = input('\nWould you like to see our graphs?? Y/N: ').lower()
+print('\nIf you answer anything other than "y" or "Y", the script will end :( ')
+
+while answer == 'y':
+    print('\nHere is your options!! There are 5!!')
+    print('To choose a graph, please enter its assigned number :) ')
+ 
+    print('\n1. The Heatgraph')
+    print('2. BMI Bar Graph')
+    print('3. Activity Bar Graph')
+    print('4. Breakfast Bar Graph')
+    print('5. Correlation Plot')
+ 
+    which_graph = input(('\nPlease enter the assigned number: '))
+ 
+    if which_graph == '1':
+ 
+        print('\nHere is a heat graph ')
+        getHeatmap()
+        answer = input('\nWould you like to see more graphs? ')
+ 
+ 
+    elif which_graph == '2':
+ 
+        print('\nHere is a bar graph showing the BMI of the participants')
+        getBMIHist()
+        answer = input('\nWould you like to see more graphs? ')
+ 
+ 
+    elif which_graph == '3':
+ 
+        print('\nHere is a bar graph showing how many people were active in the last 7 days')
+        getActivePeople()
+        answer = input('\nWould you like to see more graphs? ')
+ 
+ 
+    elif which_graph == '4':
+ 
+        print('\nHere is a bar graph showing how many people ate breakfast in the last 7 days')
+        getBreakfastEaters()
+        answer = input('\nWould you like to see more graphs? ')
+ 
+ 
+    elif which_graph == '5':
+ 
+        print('\nHere is a graph showing the correlation of people who ate breakfast VS people who were active')
+        getCorrelationPlot()
+        answer = input('\nWould you like to see more graphs? ')
+ 
+ 
+    else:
+        print('\nInvalid input :( Please try again.')
+        
+else:
+    print('\nThank you for your time :) ')
