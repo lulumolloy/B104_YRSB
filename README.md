@@ -1,3 +1,9 @@
+## Our Purpose 
+Breakfast is the most important meal of the day… or is it? In theory better nutrition and good eating habits lead to healthier kids, who have the energy required to exercise often. To test this claim we sought to find a relation between eating breakfast and activity levels. This is a relatively shallow look into the topic, which doesn’t account for confounding variables (diet, lifestyle, etc) but it gives indication of a trend which could be furthered investigated.
+
+
+The data was gathered from the CDC’s Youth Risk Behavior Surveillance System (YRBSS) from 2023. The data set was narrowed down via SQL in Microsoft Access, to 14,083 responses where questions about activity and breakfast were filled out. The winnowed data was transferred to an Excel Spreadsheet for analysis. 
+
 ## Links
 Most links are either private, or dead. 
 
