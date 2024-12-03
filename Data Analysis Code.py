@@ -77,7 +77,7 @@ def getActivePeople():
 
 def getBreakfastEaters():
     # make graph
-    sns.countplot(dataFrame, x="Breakfast", color= '#f2a2a2', stat="percent") 
+    sns.countplot(dataFrame, x="Breakfast", color= '#f2a2a2', edgecolor="#bf7373", stat="percent") 
     
     # adjust scale of y axis & add grid   
     plot.yticks([0,5,10,15,20,25,30]) #make the numbers a smaller increment
@@ -106,10 +106,10 @@ def getHeatmap():
     
 def getCorrelationPlot():
     #make histplot 
-    sns.histplot(dataFrame,x="Breakfast",y="Activity",bins=8,cmap="RdPu",thresh=None, stat="percent", discrete=True, cbar=True)
+    sns.histplot(dataFrame, x="Breakfast", y="Activity", bins=8, cmap="RdPu", thresh=None, stat="percent", discrete=True, cbar=True)
 
     #get responses per correlation pair
-    percentage, var1, var2= np.histogram2d(dataFrame["Breakfast"],dataFrame["Activity"],bins=8) #var1 and var2 are unused but require declaration 
+    percentage, var1, var2= np.histogram2d(dataFrame["Breakfast"], dataFrame["Activity"], bins=8) #var1 and var2 are unused but require declaration 
 
     #convert responses into percentage
     percentage/=14083.0 
@@ -119,9 +119,9 @@ def getCorrelationPlot():
     for x in range(8):
         for y in range(8):
             if percentage[x][y]<9: #makes 9% white
-                plot.text(x-.38,y-.1,(f"{round(percentage[x][y],2)}%"),fontsize=9,color="black")
+                plot.text(x-.38, y-.1, (f"{round(percentage[x][y],2)}%"), fontsize=9, color="black")
             else:
-                plot.text(x-.38,y-.1,(f"{round(percentage[x][y],2)}%"),fontsize=9,color="white")
+                plot.text(x-.38, y-.1, (f"{round(percentage[x][y],2)}%"), fontsize=9, color="white")
 
     # name columns, rows and title 
     plot.xlabel("Number of Days Breakfast is Eaten (per week)")
@@ -139,37 +139,37 @@ print('We were curious to see the relation between how often people eat breakfas
 
 print('\nWould you like to see our graphs?\nNote: Answering anything other than "y" or "Y" will end the script :c')
 answer = input('\nY/N: ').lower()
-
 while answer == 'y':
     print('\nHere are your options!')
     print('To choose a graph, please enter its assigned number :) ')
     print('\n1. The Heatgraph\n2. BMI Bar Graph\n3. Activity Bar Graph\n4. Breakfast Bar Graph\n5. Correlation Plot')
+    plot.close() #close current graph (nessecary for VScode)
     which_graph = input(('\nPlease enter the assigned number:  '))
     
     if which_graph == '1':
         print('\nHere is a heat graph ')
         getHeatmap()
-        answer = input('\nWould you like to see more graphs?  ')
+        answer = input('\nWould you like to see more graphs?  ').lower()
         
     elif which_graph == '2':
         print('\nHere is a bar graph showing the BMI of the participants')
         getBMIHist()
-        answer = input('\nWould you like to see more graphs?  ')
+        answer = input('\nWould you like to see more graphs?  ').lower()
         
     elif which_graph == '3':
         print('\nHere is a bar graph showing how many people were active in the last 7 days')
         getActivePeople()
-        answer = input('\nWould you like to see more graphs?  ')
+        answer = input('\nWould you like to see more graphs?  ').lower()
         
     elif which_graph == '4':
         print('\nHere is a bar graph showing how many people ate breakfast in the last 7 days')
         getBreakfastEaters()
-        answer = input('\nWould you like to see more graphs?  ')
+        answer = input('\nWould you like to see more graphs?  ').lower()
         
     elif which_graph == '5':
         print('\nHere is a graph showing the correlation of people who ate breakfast VS people who were active')
         getCorrelationPlot()
-        answer = input('\nWould you like to see more graphs?  ')
+        answer = input('\nWould you like to see more graphs?  ').lower()
         
     else:
         print('\nInvalid input :( Please try again.')
